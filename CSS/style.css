@@ -1,0 +1,183 @@
+/** COMMON CSS STARTS **/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+:root{
+   --bgcolor: rgb(255, 255, 255);
+   --sidebarBg: white;
+   --textColor: black;
+   --cursorColor: black;
+}
+.darkmode{
+    --bgcolor: rgb(16, 16, 16);
+    --sidebarBg: #bcbcbc;
+    --textColor: black;
+    --cursorColor: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+body{
+    font-family: arial;
+    background-color: var(--bgcolor);
+    overflow: hidden;
+}
+.container{
+    width: 1170px;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.align-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+/** COMMON CSS ENDS **/
+
+nav{
+    height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    align-items: center;
+}
+nav button{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #111;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    box-shadow: white 0 -0.5px 12.5px 0.5px;
+}
+
+.sidebar{
+    position: fixed;
+    inset: 0;
+    background-color: #0000005f;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+}
+.sidebar.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebarCnt{
+    background-color: var(--sidebarBg);
+    height: 100vh;
+    overflow: auto;
+    width: 80%;
+    padding: 35px;
+    max-width: 350px;
+    position: relative;
+    transform: translateX(-100%);
+    transition: 0.4s;
+}
+.sidebar.active .sidebarCnt{
+    transform: translateX(0%);  
+}
+.sidebarCnt img{
+    width: 100%;
+    max-width: 200px;
+}
+.sidebarCnt ul{
+    margin-top: 20px;
+}
+.sidebarCnt ul li a{
+    text-decoration: none;
+    color: var(--textColor);
+    margin-bottom: 15px;
+    display: block;
+    padding: 15px;
+    background-image: linear-gradient(to left, rgb(255, 255, 255), rgb(234, 234, 255));
+    border-right: 3px solid #b8b8ff;
+    transition: background-image 0.3s;
+}
+.sidebarCnt ul li a:hover{
+    background-image: linear-gradient(to left, #b8b8ff, rgb(255, 255, 255));
+}
+.sidebarCnt span{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    display: block;
+    text-align: center;
+    line-height: 0;
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.darkModeBtn{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+.darkModeBtn span{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background-color: #111;
+    line-height: 40px;
+    transition: 0.4s;
+}
+.darkModeBtn span.moonIcon{
+    top: 0;
+    right: -100%;
+}
+body.darkmode .darkModeBtn span.sunIcon{
+    left: -100%;
+}
+body.darkmode .darkModeBtn span.moonIcon{
+    right: 0;
+}
+
+.cursor{
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--cursorColor);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    z-index: 9999999;
+}
+.cursorSmall{
+    width: 10px;
+    height: 10px;
+    background-color: var(--cursorColor);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    transition: 0.3ms;
+    pointer-events: none;
+    z-index: 9999999;
+}
